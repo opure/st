@@ -2,13 +2,5 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-<package name="st" extends="struts-default">
-	<action name="uploadPic" class="com.oneler.st.UserAction" method="uploadPic">
-		<result name="success" type="redirect">changePic.jsp</result>
-		<result name="error">changePic.jsp</result>
-	</action>
-	<action name="cutPic" class="com.oneler.st.UserAction" method="cutPic">
-	<result name="success" type="redirectAction">../announcement/announcement_list.action</result>
-</action>
-</package>
+<package name=""></package>
 </struts>

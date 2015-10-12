@@ -12,11 +12,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class Test extends ActionSupport {
 	private String  name;
 	private String password;
+	private String tip;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setTip(String tip){
+		this.tip=tip;
+	}
+	public String getTip(){
+		return tip;
 	}
 	public String getPassword() {
 		return password;
