@@ -1,7 +1,18 @@
-package com.oneler.hibernate.HelloWorld;
+package com.oneler.hibernate.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.GenericGenerator;
+@Entity
+@Table(name = "News")
 public class News {
 	private Integer id;
 	private String title;
@@ -10,22 +21,28 @@ public class News {
 	public Integer getId() {
 		return id;
 	}
+	@Id
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Column
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@Column
 	public String getAuthor() {
 		return author;
 	}
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column()
 	public Date getDate() {
 		return date;
 	}

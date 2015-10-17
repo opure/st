@@ -1,18 +1,19 @@
 package com.oneler.hibernate.utils;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
-public class HibernateUtils {
+public class HibernateUtils1 {
 	 private static final SessionFactory sessionFactory = buildSessionFactory();
 
 	    private static SessionFactory buildSessionFactory() {
 	        try {
-	             Configuration config=new Configuration().configure();     	
-	             ServiceRegistry serviceregistry=new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
-	             return config.buildSessionFactory(serviceregistry);
+	        	
+	            // Create the SessionFactory from hibernate.cfg.xml
+	            return new Configuration().configure().buildSessionFactory(
+				    new StandardServiceRegistryBuilder().configure().build());
 	        }
 	        catch (Throwable ex) {
 	            // Make sure you log the exception, as it might be swallowed
@@ -26,9 +27,6 @@ public class HibernateUtils {
 	    }
 	    public static Session openSession(){
 	    	 return   sessionFactory.openSession();
-	    }
-	   public static void  close(){
-		   sessionFactory.close();
 	    }
 	    public static void main(String[] args) {
 	    	System.out.println("dsdafsdfsd ");

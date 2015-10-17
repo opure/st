@@ -20,7 +20,7 @@
 <script type="text/javascript">
   jQuery(function($){
     var jcrop_api;
-    $('#target').Jcrop({
+    $('.target').Jcrop({
       onChange:   showCoords,
       onSelect:   showCoords,
       onRelease:  clearCoords
@@ -53,19 +53,24 @@
   };
   
 </script>
-<link rel="stylesheet" href="demo_files/main.css" type="text/css" />
-<link rel="stylesheet" href="demo_files/demos.css" type="text/css" />
-<link rel="stylesheet" href="../css/jquery.Jcrop.css" type="text/css" />
+<link rel="stylesheet" href="<%=basePath %>/css/jquery.Jcrop.css" type="text/css" /> 
 </head>
 <body>
-<img src="<%=basePath %>demo_files/sago.jpg" id="target" alt="[Jcrop Example]" />
-   <div class="inline-labels">
-    <label>X1 <input type="text" size="4" id="x1" name="x1" /></label>
-    <label>Y1 <input type="text" size="4" id="y1" name="y1" /></label>
-    <label>X2 <input type="text" size="4" id="x2" name="x2" /></label>
-    <label>Y2 <input type="text" size="4" id="y2" name="y2" /></label>
-    <label>W <input type="text" size="4" id="w" name="w" /></label>
-    <label>H <input type="text" size="4" id="h" name="h" /></label>
+<img src="<%=basePath %>demo_files/sago.jpg" class="target" alt="[Jcrop Example]" />
+    <form id="coords"
+    class="coords"
+    onsubmit="return false;"
+    action="http://example.com/post.php">
+    <div class="inline-labels">
+    <label><input type="hidden" size="4" id="x1" name="x1" /></label>
+    <label><input type="hidden" size="4" id="y1" name="y1" /></label>
+    <label><input type="hidden" size="4" id="x2" name="x2" /></label>
+    <label><input type="hidden" size="4" id="y2" name="y2" /></label>
+    <label><input type="hidden" size="4" id="w" name="w" /></label>
+    <label><input type="hidden" size="4" id="h" name="h" /></label>
+    <P><input type="button" value="确认" id="crop_submit"/></P> 
     </div>
+  </form>
+    <div class="clearfix"></div>
 </body>
 </html>
